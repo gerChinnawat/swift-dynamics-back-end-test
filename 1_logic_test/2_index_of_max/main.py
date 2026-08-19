@@ -35,6 +35,10 @@ class Solution(BaseSolution):
         max_index = input_list2.index(max_value)
         self.output = max_index
 
-solution1 = Solution([1,2,1,3,5,6,4], list)
-solution1.find_max_index()
-solution1.print_result()
+example1 = Solution([1,2,1,3,5,6,4], list)
+example1.find_max_index()
+example1.print_result()
+print('-----------------------')
+example2 = Solution([], list)
+example2.find_max_index()
+example2.print_result()
