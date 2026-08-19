@@ -1,5 +1,5 @@
 """
-เขียบนโปรแกรมหา index ของตัวเลขที่มีค่ามากที่สุดใน list
+เขียนโปรแกรมหา index ของตัวเลขที่มีค่ามากที่สุดใน list
 
 [Input]
 numbers: list of numbers
@@ -15,9 +15,26 @@ output = 5
 input = []
 output = list can not blank
 """
+from shared.base_solution import BaseSolution
 
+class Solution(BaseSolution):
+    def is_input_valid(self):
+        if len(self.input) == 0:
+            self.output = 'list can not blank'
+            return False
+        return True
+    
+    def find_max_index(self):
+        if not self.is_input_type_valid() or not self.is_input_valid():
+            return
+        
+        input_list1 = self.input.copy()
+        input_list2 = self.input.copy()
+        input_list1.sort()
+        max_value = input_list1[-1]
+        max_index = input_list2.index(max_value)
+        self.output = max_index
 
-class Solution:
-
-    def find_max_index(self, numbers: list) -> int | str:
-        pass
+solution1 = Solution([1,2,1,3,5,6,4], list)
+solution1.find_max_index()
+solution1.print_result()

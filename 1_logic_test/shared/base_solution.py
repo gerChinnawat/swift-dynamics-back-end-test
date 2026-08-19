@@ -2,13 +2,12 @@ class BaseSolution:
     def __init__(self, user_input: any, expected_type: type):
         self.input = user_input
         self.expected_type = expected_type
-        self.is_input_type_valid = True
-        self.is_input_valid = True
         
-    def validate_input_type(self):
+    def is_input_type_valid(self):
         if not isinstance(self.input, self.expected_type):
             self.output = f'input must be {self.expected_type.__name__}'
-            self.is_input_type_valid = False
+            return False
+        return True
 
     def print_result(self):
         print('input = ', self.input)

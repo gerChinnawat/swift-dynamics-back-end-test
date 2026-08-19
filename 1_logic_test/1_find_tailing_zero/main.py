@@ -19,10 +19,11 @@ output = number can not be negative
 from shared.base_solution import BaseSolution
 
 class Solution(BaseSolution):
-    def validate_input(self):
+    def is_input_valid(self):
         if self.input < 0:
             self.output = 'number can not be negative'
-            self.is_input_valid = False
+            return False
+        return True
         
     def find_factorial_result(self) -> int:
         result = 1
@@ -47,22 +48,15 @@ class Solution(BaseSolution):
             count += 1
 
     def find_tailing_zeroes(self):
-        self.validate_input_type()
-        if not self.is_input_type_valid:
-            self.print_result()
+        if not self.is_input_type_valid() or not self.is_input_valid():
             return
-
-        self.validate_input()
-        if not self.is_input_valid:
-            self.print_result()
-            return
-        
         self.output = self.count_zero_tail()
-        self.print_result()
 
 
 solution1 = Solution(7, int)
 solution1.find_tailing_zeroes()
-
+solution1.print_result()
+print('-----------------------')
 solution2 = Solution(-10, int)
 solution2.find_tailing_zeroes()
+solution2.print_result()
