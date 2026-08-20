@@ -23,10 +23,12 @@ class TeacherFilter(FilterSet):
     gender = filters.ChoiceFilter(choices=Gender.choices)
     first_name = filters.CharFilter(lookup_expr="icontains")
     last_name = filters.CharFilter(lookup_expr="icontains")
+    school = filters.NumberFilter(field_name="classrooms__school_id")
+    classroom = filters.NumberFilter(field_name="classrooms")
 
     class Meta:
         model = Teacher
-        fields = ["gender", "first_name", "last_name", "classrooms", "is_active"]
+        fields = ["gender", "first_name", "last_name", "classroom", "is_active"]
 
 
 class StudentFilter(FilterSet):
