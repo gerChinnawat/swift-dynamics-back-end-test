@@ -2,7 +2,10 @@ from rest_framework import viewsets
 
 from apis.filters import SchoolFilter
 from apis.models import School
-from apis.serializers import SchoolReadSerializer, SchoolWriteSerializer
+from apis.serializers import (
+    SchoolDetailSerializer,
+    SchoolWriteSerializer,
+)
 
 
 class SchoolViewSet(viewsets.ModelViewSet):
@@ -11,5 +14,5 @@ class SchoolViewSet(viewsets.ModelViewSet):
 
     def get_serializer_class(self):
         if self.action in ["list", "retrieve"]:
-            return SchoolReadSerializer
+            return SchoolDetailSerializer
         return SchoolWriteSerializer
