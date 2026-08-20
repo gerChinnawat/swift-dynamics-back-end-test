@@ -2,6 +2,7 @@ class BaseSolution:
     def __init__(self, user_input: any, expected_type: type):
         self.input = user_input
         self.expected_type = expected_type
+        self.output = None
         
     def is_input_type_valid(self):
         if not isinstance(self.input, self.expected_type):
